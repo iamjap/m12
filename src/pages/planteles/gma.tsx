@@ -13,7 +13,7 @@ import CardHeader from '@mui/material/CardHeader'
 import Grid from '@mui/material/Grid'
 
 // ** Icons Imports
-import FolderInformation  from 'mdi-material-ui/FolderInformation'
+import FolderInformation from 'mdi-material-ui/FolderInformation'
 import AccountSchool from 'mdi-material-ui/AccountSchool'
 import AccountHardHat from 'mdi-material-ui/AccountHardHat'
 
@@ -23,10 +23,6 @@ import Tablagma1 from 'src/views/planteles/gma1'
 import CardCifras from 'src/views/planteles/gma2'
 import CardPersonal from 'src/views/planteles/gma3'
 import CardInfo from 'src/views/planteles/gma4'
-
-
-// ** Third Party Styles Imports
-import 'react-datepicker/dist/react-datepicker.css'
 
 const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
