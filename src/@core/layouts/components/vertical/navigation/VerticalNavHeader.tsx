@@ -9,7 +9,6 @@ import Image from 'next/image'
 import Box, { BoxProps } from '@mui/material/Box'
 import { styled, useTheme } from '@mui/material/styles'
 import Typography, { TypographyProps } from '@mui/material/Typography'
-import logo from '../../../../../../public/images/apple-touch-icon.png'
 
 // ** Type Import
 import { Settings } from 'src/@core/context/settingsContext'
@@ -48,7 +47,7 @@ const VerticalNavHeader = (props: Props) => {
         userVerticalNavMenuBranding(props)
       ) : (
         <Link href='/' passHref>
-            <Image src={logo} alt='logo'  width={150} height={80}  />      
+            <Image src={'/images/apple-touch-icon.png'} alt='logo'  width={150} height={80}  />      
         </Link>
       )}
     </MenuHeaderWrapper>

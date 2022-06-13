@@ -35,7 +35,6 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustration'
-import logo from '../../../../public/images/apple-touch-icon.png'
 
 interface State {
   password: string
@@ -88,7 +87,7 @@ const LoginPage = () => {
       <Card sx={{ zIndex: 1 }}>
         <CardContent sx={{ padding: theme => `${theme.spacing(12, 9, 7)} !important` }}>
           <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>           
-            <Image src={logo} alt='logo' />
+            <Image src={'/images/apple-touch-icon.png'} alt='logo' width={200} height={150} />
           </Box>
           <Box sx={{ mb: 6 }}>
             <Typography variant='h5' sx={{ fontWeight: 600, marginBottom: 1.5, display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
