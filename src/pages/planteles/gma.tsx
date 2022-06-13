@@ -14,7 +14,7 @@ import Grid from '@mui/material/Grid'
 
 // ** Icons Imports
 import FolderInformation from 'mdi-material-ui/FolderInformation'
-import AccountSchool from 'mdi-material-ui/AccountSchool'
+//import AccountSchool from 'mdi-material-ui/AccountSchool'
 import AccountHardHat from 'mdi-material-ui/AccountHardHat'
 
 // ** Demo Tabs Imports
@@ -70,8 +70,7 @@ const AccountSettings = () => {
           <Tab
             value='matricula'
             label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <AccountSchool />
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>                
                 <TabName>Estadisticas de matrícula</TabName>
               </Box>
             }
