@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent'
 
 // ** Icons Imports
 import Heart from 'mdi-material-ui/LocationEnter'
-//import ShareVariant from 'mdi-material-ui/AccountSchool'
+import ShareVariant from 'mdi-material-ui/AccountSchool'
 
 const CardFacebook = () => {
   return (
@@ -21,7 +21,7 @@ const CardFacebook = () => {
         </Typography>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
           <Box sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
-            <Heart sx={{ width: 34, height: 34, marginRight: 2.75 }} />
+            <ShareVariant sx={{ width: 34, height: 34, marginRight: 2.75 }} />
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
