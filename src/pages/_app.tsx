@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Router } from 'next/router'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import { SessionProvider } from 'next-auth/react'
 
 // ** Loader Import
 import NProgress from 'nprogress'
@@ -59,6 +60,7 @@ const App = (props: ExtendedAppProps) => {
   const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
 
   return (
+    <SessionProvider>
     <CacheProvider value={emotionCache}>
       <Head>
         <title>{`${themeConfig.templateName} - Circuito 12`}</title>
@@ -69,7 +71,6 @@ const App = (props: ExtendedAppProps) => {
         <meta name='' content='' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
-
       <SettingsProvider>
         <SettingsConsumer>
           {({ settings }) => {
@@ -78,6 +79,7 @@ const App = (props: ExtendedAppProps) => {
         </SettingsConsumer>
       </SettingsProvider>
     </CacheProvider>
+    </SessionProvider>
   )
 }
 

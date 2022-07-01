@@ -75,7 +75,7 @@ export default function PlantelesTable() {
                   />
                 </TableCell>
                 <TableCell>{row.director}</TableCell>
-                <TableCell><Link href='/planteles/gma'><Button variant="outlined" size="small"><Ver/></Button></Link></TableCell>               
+                <TableCell><Link href='/secciones/ceigma'><Button variant="outlined" size="small"><Ver/></Button></Link></TableCell>               
               </TableRow>
             ))}
           </TableBody>

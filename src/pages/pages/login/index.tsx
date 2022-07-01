@@ -95,7 +95,7 @@ const LoginPage = () => {
             </Typography>
             <Typography variant='body2' sx={{display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Inicia sesión en tu cuenta</Typography>
           </Box>
-          <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
+          <form noValidate autoComplete='off' name='formgo'>
             <TextField autoFocus fullWidth id='email' label='Usuario' sx={{ marginBottom: 4 }} />
             <FormControl fullWidth>
               <InputLabel htmlFor='auth-login-password'>Contraseña</InputLabel>
@@ -132,7 +132,7 @@ const LoginPage = () => {
               size='large'
               variant='contained'
               sx={{ marginBottom: 7 }}
-              onClick={() => router.push('/')}
+              onClick={() => go()}
             >
               Entrar
             </Button>
@@ -148,5 +148,15 @@ const LoginPage = () => {
 }
 
 LoginPage.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>
+
+function go(){
+  alert('vamos')
+  /*if (document.formgo.password.value=='prueba' && document.formgo.login.value=='prueba'){ 
+          document.formgo.submit(); 
+      } 
+      else{ 
+           alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
+      } */
+  } 
 
 export default LoginPage
