@@ -7,7 +7,7 @@ export default NextAuth({
       name: "credentials",
       credentials: {
         username: {
-          label: "Email",
+          label: "Username",
           type: "text",
           placeholder: "johndoe@test.com",
         },
@@ -53,7 +53,7 @@ export default NextAuth({
     secret: "test",
     encryption: true,
   },
-  /*pages: {
-    signIn: "auth/signin",
-  },*/
+  pages: {
+    signIn: "/pages/login",
+  },
 });

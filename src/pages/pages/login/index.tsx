@@ -1,5 +1,6 @@
 // ** React Imports
 import { ChangeEvent, MouseEvent, ReactNode, useState } from 'react'
+import { getProviders, getSession, getCsrfToken } from "next-auth/react";
 
 // ** Next Imports
 import Link from 'next/link'
@@ -41,6 +42,24 @@ interface State {
   showPassword: boolean
 }
 
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (session) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
+  }
+  return {
+    props: {
+      providers: await getProviders(context),
+      csrfToken: await getCsrfToken(context),
+    },
+  };
+}
+
 // ** Styled Components
 const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
   [theme.breakpoints.up('sm')]: { width: '28rem' }
@@ -59,7 +78,7 @@ const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ t
   }
 }))
 
-const LoginPage = () => {
+const LoginPage = ({ providers , csrfToken}) => {
   // ** State
   const [values, setValues] = useState<State>({
     password: '',
@@ -95,14 +114,16 @@ const LoginPage = () => {
             </Typography>
             <Typography variant='body2' sx={{display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Inicia sesión en tu cuenta</Typography>
           </Box>
-          <form noValidate autoComplete='off' name='formgo'>
-            <TextField autoFocus fullWidth id='email' label='Usuario' sx={{ marginBottom: 4 }} />
+          <form noValidate autoComplete='off' method="post" action="/api/auth/callback/credentials">
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+            <TextField autoFocus fullWidth name='username' type="text" label='Usuario' sx={{ marginBottom: 4 }} />
             <FormControl fullWidth>
               <InputLabel htmlFor='auth-login-password'>Contraseña</InputLabel>
               <OutlinedInput
                 label='Password'
                 value={values.password}
                 id='auth-login-password'
+                name='password'
                 onChange={handleChange('password')}
                 type={values.showPassword ? 'text' : 'password'}
                 endAdornment={
@@ -127,12 +148,12 @@ const LoginPage = () => {
                 <LinkStyled onClick={e => e.preventDefault()}>¿Olvido su contraseña?</LinkStyled>
               </Link>
             </Box>
-            <Button
+            <Button  
+              type='submit'
               fullWidth
               size='large'
               variant='contained'
-              sx={{ marginBottom: 7 }}
-              onClick={() => go()}
+              sx={{ marginBottom: 7 }}              
             >
               Entrar
             </Button>
@@ -149,14 +170,6 @@ const LoginPage = () => {
 
 LoginPage.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>
 
-function go(){
-  alert('vamos')
-  /*if (document.formgo.password.value=='prueba' && document.formgo.login.value=='prueba'){ 
-          document.formgo.submit(); 
-      } 
-      else{ 
-           alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
-      } */
-  } 
+
 
 export default LoginPage

@@ -117,7 +117,7 @@ const UserDropdown = () => {
           </Box>
         </MenuItem>
         <Divider />
-        <MenuItem sx={{ py: 2 }} onClick={() => signOut()}>
+        <MenuItem sx={{ py: 2 }} onClick={() => signOut({ callbackUrl: 'http://localhost:3000/' })}>
           <LogoutVariant sx={{ marginRight: 2, fontSize: '1.375rem', color: 'text.secondary' }} />
           Salir
         </MenuItem>
