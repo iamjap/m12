@@ -22,7 +22,9 @@ const Dashboard = () => {
       <CardFacebook />
     </Grid>
     <Grid item xs={12} sm={6} md={4}>
-      <CardLinkedIn />
+    <Link href="/personal" >
+     <a style={{ textDecoration: 'none' }}><CardLinkedIn/></a> 
+    </Link>
     </Grid>
     <Grid item xs={12} sm={6} md={4}>
     <Link href="/secciones" >
